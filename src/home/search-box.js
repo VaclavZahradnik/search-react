@@ -28,7 +28,7 @@ export function SearchBox({ onSearch }) {
         <Form.Control type="text" value={text} onChange={handleChange} placeholder="Type text to search..." />
       </Form.Group>
 
-      <Button variant="primary" type="button">
+      <Button variant="primary" type="submit">
         Search
       </Button>
     </Form>

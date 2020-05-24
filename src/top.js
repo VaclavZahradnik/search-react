@@ -8,7 +8,7 @@ export function Top() {
       <LinkContainer to="/">
         <Navbar.Brand href="#home">
           <span className="fa fa-search mr-2" />
-          Sample search app
+          Search app
         </Navbar.Brand>
       </LinkContainer>
       <Nav className="ml-auto">

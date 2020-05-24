@@ -34,7 +34,7 @@ export function Page({ keywords, page }) {
           <img src={imgSrc} alt="" width="16" height="16" className="mr-2" />
           <a href={page.url}>{page.url}</a>
           <DropdownButton id="dropdown-basic-button" variant="outline-secondary" size="sm" title="">
-            <LinkContainer to="/foo/bar">
+            <LinkContainer to={`/cache/${encodeURIComponent(page.url)}`}>
               <Dropdown.Item>Cached version</Dropdown.Item>
             </LinkContainer>
           </DropdownButton>
