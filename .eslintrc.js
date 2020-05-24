@@ -24,6 +24,7 @@ module.exports = {
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
     'prettier/prettier': ['error', { arrowParens: 'avoid', printWidth: 120, singleQuote: true, trailingComma: 'none' }],
+    'react/prop-types': 0,
     quotes: ['error', 'single'],
     semi: ['error', 'always']
   }

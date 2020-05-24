@@ -3,27 +3,31 @@ import { Form, Button } from 'react-bootstrap';
 
 import './search-box.scss';
 
-export function SearchBox() {
-  const [searchText, setSearchText] = useState('');
+export function SearchBox({ onSearch }) {
+  const [text, setText] = useState('');
   const handleChange = useCallback(
-    value => {
-      setSearchText(value);
+    e => {
+      setText(e.target.value);
     },
-    [setSearchText]
+    [setText]
   );
 
-  const rerere = function(...args) {
-    console.log("aa");
-  }
+  const handleSubmit = useCallback(
+    e => {
+      e.preventDefault();
+      if (onSearch) onSearch(text);
+    },
+    [text, onSearch]
+  );
 
   return (
-    <Form className="search-box">
+    <Form className="home-search-box" onSubmit={handleSubmit}>
       <Form.Group controlId="formBasicEmail">
-        <Form.Control type="text" value={searchText} onChange={rerere} placeholder="Type text to search..." />
+        <Form.Control type="text" value={text} onChange={handleChange} placeholder="Type text to search..." />
       </Form.Group>
 
       <Button variant="primary" type="button">
-        Submit
+        Search
       </Button>
     </Form>
   );
