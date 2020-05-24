@@ -1,10 +1,12 @@
-import React, { useCallback } from 'react';
+/** @jsx jsx */
+import { useCallback } from 'react';
+import { jsx } from '@emotion/core';
 import { useHistory } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import SearchBox from '../home/search-box.js';
 
-import './home.scss';
+import * as Css from './home-css.js';
 
 export function Home() {
   const history = useHistory();
@@ -17,7 +19,7 @@ export function Home() {
   );
 
   return (
-    <Container className="home">
+    <Container css={Css.home}>
       <Row>
         <Col>
           <div className="centered">

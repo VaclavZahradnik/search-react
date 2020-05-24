@@ -1,7 +1,9 @@
-import React, { useState, useCallback } from 'react';
+/** @jsx jsx */
+import { useState, useCallback } from 'react';
+import { jsx } from '@emotion/core';
 import { Form, Button } from 'react-bootstrap';
 
-import './search-box.scss';
+import * as Css from './search-box-css.js';
 
 export function SearchBox({ onSearch }) {
   const [text, setText] = useState('');
@@ -21,7 +23,7 @@ export function SearchBox({ onSearch }) {
   );
 
   return (
-    <Form className="home-search-box" onSubmit={handleSubmit}>
+    <Form css={Css.searchBox} onSubmit={handleSubmit}>
       <Form.Group controlId="formBasicEmail">
         <Form.Control type="text" value={text} onChange={handleChange} placeholder="Type text to search..." />
       </Form.Group>

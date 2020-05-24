@@ -1,4 +1,6 @@
-.page {
+import { css } from '@emotion/core';
+
+export const page = css`
   &:not(:hover) {
     border-color: transparent;
   }
@@ -35,4 +37,4 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
   }
-}
+`;

@@ -1,13 +1,15 @@
-import React, { useCallback, useState, useEffect } from 'react';
+/** @jsx jsx */
+import { useCallback, useState, useEffect } from 'react';
+import { jsx } from '@emotion/core';
 import { useHistory, useParams } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import SearchBox from '../search/search-box.js';
 import SearchResults from '../search/search-results.js';
 import NoResults from '../search/no-results.js';
-
-import './search.scss';
 import Language from '../search/language.js';
+
+import * as Css from './search-css.js';
 
 async function fetchPages(text, lang) {
   try {
@@ -59,7 +61,7 @@ export function Search() {
   const handleLangChange = useCallback(lang => setLang(lang), [setLang]);
 
   return (
-    <Container className="search">
+    <Container css={Css.search}>
       <Row>
         <Col lg={7}>
           <SearchBox text={text} onSearch={handleSearch} />

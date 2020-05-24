@@ -1,8 +1,10 @@
-import React, { useCallback } from 'react';
+/** @jsx jsx */
+import { useCallback } from 'react';
+import { jsx } from '@emotion/core';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import iso6391 from 'iso-639-1';
 
-import './language.scss';
+import * as Css from './language-css.js';
 
 export function Language({ lang, onChange }) {
   let language;
@@ -24,7 +26,8 @@ export function Language({ lang, onChange }) {
       variant="outline-secondary"
       size="sm"
       title={language || 'All languages'}
-      className="language ml-3 mb-1"
+      className="ml-3 mb-1"
+      css={Css.language}
     >
       <Dropdown.Item active={!lang} onClick={() => handleClick()}>
         All languages

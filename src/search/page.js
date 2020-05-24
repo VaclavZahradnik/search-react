@@ -1,9 +1,11 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import { Card, Dropdown, DropdownButton } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
-import './page.scss';
+import * as Css from './page-css.js';
 
+const TEXT_WINDOW = 10;
 const MAX_TEXT_LENGTH = 1000;
 
 function getText(text, keywords) {
@@ -11,7 +13,7 @@ function getText(text, keywords) {
 
   const regex = new RegExp(keywords.join('|'), 'ig');
   const from = text.search(regex);
-  if (from > 0) text = text.substring(from - 10, from - 10 + MAX_TEXT_LENGTH);
+  if (from > 0) text = text.substring(from - TEXT_WINDOW, from - TEXT_WINDOW + MAX_TEXT_LENGTH);
   else text.substring(0, MAX_TEXT_LENGTH);
 
   return text.replace(regex, '<strong>$&</strong>');
@@ -23,7 +25,7 @@ export function Page({ keywords, page }) {
   const imgSrc = 'data:image/png;base64,' + page.favicon;
 
   return (
-    <Card className="page">
+    <Card css={Css.page}>
       <Card.Body>
         <Card.Title>
           <a href={page.url}>{page.title}</a>
