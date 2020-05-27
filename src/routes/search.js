@@ -37,7 +37,8 @@ function getLanguage() {
 }
 
 export function Search() {
-  const { text } = useParams();
+  const params = useParams();
+  const text = params.text || '';
   const [lang, setLang] = useState(getLanguage());
   const [pages, setPages] = useState([]);
 
@@ -51,11 +52,16 @@ export function Search() {
   const history = useHistory();
 
   const handleSearch = useCallback(
-    text => {
-      if (lang) history.push(`/search/${text}?lang=${lang}`);
-      else history.push(`/search/${text}`);
+    async searchText => {
+      if (searchText !== text) {
+        if (lang) history.push(`/search/${searchText}?lang=${lang}`);
+        else history.push(`/search/${searchText}`);
+      } else {
+        const pages = await fetchPages(searchText, lang);
+        setPages(pages);
+      }
     },
-    [lang, history]
+    [text, lang, history, setPages]
   );
 
   const handleLangChange = useCallback(lang => setLang(lang), [setLang]);

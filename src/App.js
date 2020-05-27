@@ -15,7 +15,7 @@ function App() {
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/search/:text">
+        <Route path="/search/:text?">
           <Search />
         </Route>
         <Route path="/cache/:url">

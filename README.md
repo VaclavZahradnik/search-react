@@ -33,7 +33,7 @@ git clone https://github.com/VaclavZahradnik/search-crawler
 
 Modify `env/development.json` in `search-server` and `search-crawler` repositories and change user name and password to access ArangoDb database.
 
-Switch to search-crawler repository and initialize the search-example database by running:
+Switch to `search-crawler` repository and initialize the search-example database by running:
 
 ```
 npm install
@@ -50,6 +50,8 @@ npm start
 Optionaly, you can run search-crawler independently or not at all.
 
 ## Search engine example frontend
+
+This repository contains frontend for the search engine example. It is written with modern frontend technologies such as react hooks, emotion and react-bootstrap.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
